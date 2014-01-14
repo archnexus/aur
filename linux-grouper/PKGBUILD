@@ -30,7 +30,7 @@ md5sums=('00cd7072e209cbb4731272e8def2f802'
 _kernelname=${pkgbase#linux}
 
 prepare() {
-  cd "${srcdir}/$_srcname}"
+  cd "${srcdir}/grouper-kernel-${pkgver}-${pkgrel}"
   cat "${srcdir}/config.armv7h" > ./.config
 
   if [ "${_kernelname}" != "" ]; then
