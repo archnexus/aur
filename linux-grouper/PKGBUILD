@@ -1,3 +1,5 @@
+# Maintainer: ylixir Jon Allen <ylixir@gmail.com>
+# based of linux package for arch
 _device=-grouper
 _pkgext=$_device
 pkgbase=linux$_pkgext
@@ -119,6 +121,12 @@ EOF
   rm -f "${pkgdir}"/lib/modules/${_kernver}/{source,build}
   # remove the firmware
   rm -rf "${pkgdir}/lib/firmware"
+  # and add the firmware...
+  mkdir -p "$pkgdir/usr/lib/firmware"
+  cp ${srcdir}/nvram.txt "$pkgdir/usr/lib/firmware/"
+  cp ${srcdir}/fw_bcmdhd.bin "$pkgdir/usr/lib/firmware/"
+  cp ${srcdir}/bcm4330.hcd "$pkgdir/usr/lib/firmware/"
+
   # gzip -9 all modules to save 100MB of space
   find "${pkgdir}" -name '*.ko' -exec gzip -9 {} \;
   # make room for external modules
