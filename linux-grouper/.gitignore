@@ -2,3 +2,5 @@ v3.1.10-1.tar.gz
 config.armv7h.last
 src/
 pkg/
+*.swp
+linux-grouper.install.pkg

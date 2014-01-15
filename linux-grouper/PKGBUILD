@@ -103,6 +103,7 @@ _package() {
 #    -e "s|fallback_image=.*|fallback_image=\"/boot/initramfs-${pkgbase}-fallback.img\"|" \
 #    -i "${pkgdir}/etc/mkinitcpio.d/${pkgbase}.preset"
     msg "Generating $pkgname.preset..."
+    mkdir -p "${pkgdir}/etc/mkinitcpio.d/"
     cat > "$pkgdir/etc/mkinitcpio.d/$pkgname.preset" <<EOF
 # mkinitcpio preset file for the '$pkgname' package
 
